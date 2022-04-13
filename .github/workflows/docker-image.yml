@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       #run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
       run: docker build --tag docker-node .
-    #- name: run docker image
-    #  run: docker run --name nodejsapp -p 80:80 docker-node
+    - name: run the docker container
+      run: docker run --name nodejsapp -p 80:80 docker-node
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@master
