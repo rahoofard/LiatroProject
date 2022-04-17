@@ -28,9 +28,7 @@ jobs:
         username: ${{secrets.DOCKER_USRNAME}}
         password: ${{secrets.DOCKER_PASS}}
         
-    - name: pushing image
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: user/app:latest
-        file: ./Dockerfile
+    - name: manually pushing image
+      run: |
+        docker tag docker-node:latest  rhoofard/liatro_project:latest
+        docker push rhoofard/liatro_project:latest
