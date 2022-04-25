@@ -19,8 +19,8 @@ jobs:
       run: docker build --tag docker-node .
     - name: run the docker container
       run: docker run --name nodejsapp -d -p 80:80 docker-node
-    - name: run tests
-      uses: liatrio/github-actions/apprentice-action@master
+   # - name: run tests
+   #   uses: liatrio/github-actions/apprentice-action@master
       
     - name: Login to docker
       uses: docker/login-action@v1
