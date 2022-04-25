@@ -5,7 +5,8 @@ const port = 80
 app.get('/', (req, res) => {
 	res.json({
     		"message": "My name is Ryan Hoofard",
-    		"timestamp": (new Date()).getTime()
+    		"timestamp": (new Date()).getTime(),
+		"Testing": "if github runner is working"
 	});
 })
 
