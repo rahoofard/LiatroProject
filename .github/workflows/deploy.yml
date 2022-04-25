@@ -1,0 +1,20 @@
+on:
+  workflow_run:
+    workflows: ["Build, run, test, push"]
+    types:
+      - completed
+  
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      #- uses: actions/checkout@v2
+    - name: stops running container
+      run: sudo docker stop myapp
+    - name: removes container
+      run: sudo docker container rm myapp
+    - name: pull down new image
+      run: sudo docker pull rhoofard/liatro_project:latest
+    - name: run the docker container
+      run: sudo docker run --name myapp -p 80:80 rhoofard/liatro_project:latest
