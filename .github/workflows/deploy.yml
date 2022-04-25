@@ -10,11 +10,13 @@ jobs:
 
     steps:
       #- uses: actions/checkout@v2
-    - name: stops running containers
-      run: sudo docker kill $(sudo docker ps -q)
+    - name: stop_container
+      run: sudo docker stop myapp
+      continue-on-error: true
     - name: removes all container
-      run: sudo docker rm $(sudo docker ps -a -q)
+      run: sudo docker rm myapp
+      continue-on-error: true
     - name: pull down new image
       run: sudo docker pull rhoofard/liatro_project:latest
     - name: run the docker container
-      run: sudo docker run -p 80:80 rhoofard/liatro_project:latest
+      run: sudo docker run --name myapp -p 80:80 rhoofard/liatro_project:latest
