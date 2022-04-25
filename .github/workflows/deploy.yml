@@ -23,8 +23,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: stop all running containers
-      - run: sudo docker kill $(sudo docker ps -q)
+        run: sudo docker kill $(sudo docker ps -q)
       - name: pull latest image from docker repo
-      - run: sudo docker pull rhoofard/liatro_project:latest
+        run: sudo docker pull rhoofard/liatro_project:latest
       - name: start docker container
-      - run: sudo docker run -p 80:80 rhoofard/liatro_project:latest
+        run: sudo docker run -p 80:80 rhoofard/liatro_project:latest
